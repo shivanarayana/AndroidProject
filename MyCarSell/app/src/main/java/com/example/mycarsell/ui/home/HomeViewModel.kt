@@ -1,6 +1,6 @@
 package com.example.mycarsell.ui.home
 
-import androidx.compose.ui.graphics.Color
+import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,23 +12,21 @@ class HomeViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    // --- Header Data ---
     private val _headerTitle = MutableLiveData<String>().apply {
         value = "CarSellMax!" // Example header title
     }
     val headerTitle: LiveData<String> = _headerTitle
 
-    private val _headerColor = MutableLiveData<androidx.compose.ui.graphics.Color>().apply {
-        value = Color.Red // Set the header color to Red
+    private val _headerColor = MutableLiveData<Int>().apply {
+        value = Color.RED // Use android.graphics.Color
     }
-    val headerColor: LiveData<androidx.compose.ui.graphics.Color> = _headerColor
+    val headerColor: LiveData<Int> = _headerColor
 
-    // --- Example functions to update header data (optional) ---
     fun updateHeaderText(newTitle: String) {
         _headerTitle.value = newTitle
     }
 
-    fun updateHeaderColor(newColor: androidx.compose.ui.graphics.Color) {
+    fun updateHeaderColor(newColor: Int) {
         _headerColor.value = newColor
     }
 }

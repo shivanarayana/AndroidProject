@@ -26,6 +26,16 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        val headerText: TextView = binding.headerText
+        homeViewModel.headerTitle.observe(viewLifecycleOwner) {
+            headerText.text = it
+        }
+
+        homeViewModel.headerColor.observe(viewLifecycleOwner) {
+            headerText.setTextColor(it)
+        }
+
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
